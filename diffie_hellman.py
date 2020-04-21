@@ -1,4 +1,5 @@
 from random import randint
+import unittest
 
 
 class diffie_hellman:
@@ -22,17 +23,15 @@ class diffie_hellman:
         self.public = pow(g, self.secret, p)
         self.shared = None
 
-    def derive_shared_secret(self, B):
+    def get_shared_secret(self, B):
         self.shared = pow(B, self.secret, self.p)
 
-
-import unittest
 
 class diffie_hellman_test(unittest.TestCase):
 
     def test_getting_key(self):
-        default_alice = diffie_hellman()
-        default_bob = diffie_hellman()
-        default_alice.derive_shared_secret(default_bob.public)
-        default_bob.derive_shared_secret(default_alice.public)
-        self.assertEqual(default_alice.shared, default_bob.shared)
+        alice = diffie_hellman()
+        bob = diffie_hellman()
+        alice.get_shared_secret(bob.public)
+        bob.get_shared_secret(alice.public)
+        self.assertEqual(alice.shared, bob.shared)
