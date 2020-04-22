@@ -5,7 +5,7 @@ from os import urandom
 from Crypto.Cipher import AES
 
 import encryption_func
-from diffie_hellman import diffie_hellman
+from T33_diffie_hellman import diffie_hellman
 
 
 def mitm():

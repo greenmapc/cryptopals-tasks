@@ -4,7 +4,8 @@ from Crypto.Cipher import AES
 def pkcs7_padding(message, block_size):
     if len(message) == block_size:
         return message
-    message = message.encode('utf-8')
+    if isinstance(message, str):
+        message = message.encode('utf-8')
     ch = block_size - len(message) % block_size
     return message + bytes([ch] * ch)
 
