@@ -5,7 +5,7 @@ from os import urandom
 from Crypto.Cipher import AES
 
 import encryption_func
-from T33_diffie_hellman import diffie_hellman
+from homework_1.T33_diffie_hellman import diffie_hellman
 
 
 def parameter_injection_attack(alice, bob):
